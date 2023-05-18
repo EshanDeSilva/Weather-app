@@ -3,10 +3,12 @@ function changeTheme() {
     var element1 = document.getElementById("center-dark");
     var element2 = document.getElementById("bottom-dark");
     var button = document.getElementById("add-btn");
+    var mainBody = document.getElementById("right-body");
     element.classList.toggle("top-dark-mode");
     element1.classList.toggle("dark-mode");
     element2.classList.toggle("dark-mode");
     button.classList.toggle("button-dark-mode");
+    mainBody.classList.toggle("right-body-dark");
  }
 
  function newSection() {
@@ -24,7 +26,10 @@ function changeTheme() {
    newDiv.innerHTML = 'New Div ';
    newDiv.className = "newDiv";
    var closeButton = document.createElement('button');
-   closeButton.innerHTML = 'x';
+   var icon = document.createElement('img');
+   icon.src = 'https://img.icons8.com/?size=512&id=7703&format=png';
+   icon.classList.add('close-img');
+   closeButton.appendChild(icon);
    closeButton.classList.add('close');
    closeButton.onclick = function() {
       container.removeChild(newDiv);
