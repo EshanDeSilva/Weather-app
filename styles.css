@@ -1,9 +1,3 @@
-.main-outer{
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    border: 1px solid black;
-}
 .top{
     width: 100%;
     height: 30vh;
@@ -16,6 +10,16 @@
     width: 100%;
     height: 65vh;
     background-color: rgb(115, 177, 177);
+}
+.upper{
+  display: flex;
+  border: 1px solid brown;
+  align-items: center;
+  height: 40vh;
+}
+.lower{
+  border: 1px solid greenyellow;
+  height: 25vh;
 }
 .bottom{
     width: 100%;
@@ -47,7 +51,6 @@
 }
 .dark-mode{
     background-color:#424239;
-    color: antiquewhite;
 }
 /* The switch - the box around the slider */
 .switch {
@@ -113,7 +116,7 @@
   }
 
   /*searxh text*/
-  .txtSearch{
+  /*.txtSearch{
     border-radius: 10px;
   }
   form.form input[type=text] {
@@ -145,4 +148,77 @@
     content: "";
     clear: both;
     display: table;
-  }
+  }*/
+
+ .button-dark-mode{
+  box-shadow: 2px 2px 5px #fffefe;
+  background-color:#424239;
+  color: antiquewhite;
+ }
+
+.add-button{
+  border: none;
+  border-radius: 40px;
+  font-size: 60px;
+  height: 80px;
+  width: 80px; 
+  background-color: #979494;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 13px;
+  margin-left: 5%;
+  /*margin-top:10%;*/
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #424239;
+  transition: width 0.5s,height 0.5s;
+ }
+ .add-button:hover{
+  width: 85px;
+  height: 85px;
+  border-radius: 45px;
+  padding-bottom: 13px;
+ }
+ .add-button-click{
+  margin-left: 20%;
+  margin-top: 10%;
+ }
+ .newDiv{
+  display: flex;
+  width: 25vh;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  margin: 10px 5px 10px 5px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #bdc3c7;
+  box-shadow: 2px 2px 5px #424239;
+  transition: width 0.5s, height 0.5s;
+ }
+ .newDiv:hover{
+  width: 26vh;
+  height: 32vh;
+ }
+ .close{
+ /* margin-left: 90px; /*12vh*/
+  /*margin-bottom: 180px; /*24v*/
+
+  margin: 0px 0px 180px 90px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1vh;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: transparent;
+ }
+ .con{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*border: 1px solid black;*/
+  height: 40vh;
+ }
