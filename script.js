@@ -1,4 +1,6 @@
 let count = 0;
+let changeCount = 0;
+let changeCToFCount = 0;
 function search(){
     var search = document.getElementById("txt").value;
     let size = 12;
@@ -30,7 +32,11 @@ function search(){
 
     var scrpt = document.createElement('script');
     scrpt.id='widget';
-    scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=1&div=weatherapi-weather-widget-3";
+    if(changeCount%2 == 0){
+        scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=1&div=weatherapi-weather-widget-3";
+    }else{
+        scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=4&tu=1&div=weatherapi-weather-widget-3";
+    }
 
     top.appendChild(scrpt);
     top.appendChild(newDiv);
@@ -39,4 +45,71 @@ function search(){
 function changeTheme(){
     var element = document.getElementById("main");
     element.classList.toggle("body-light");
+
+    var search = document.getElementById("txt").value;
+    let size = 12;
+    if (search == null || search == ""){
+        search = "Sri Lanka";
+    }
+
+    if (search == "Sri Lanka" || search == "sri lanka" || search == "srilanka" || search == "sl" || search == "SL" ){
+        size = 8;
+    }
+
+
+    var scrpt =  document.getElementById("widget");
+    scrpt.remove();
+    scrpt = document.createElement("script");
+    scrpt.id = "widget";
+    if(changeCount%2 == 1){
+        if (changeCToFCount%2 == 1){
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=2&div=weatherapi-weather-widget-3";
+        }else{
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=1&div=weatherapi-weather-widget-3";
+        }
+    }else{
+        if (changeCToFCount%2 == 1){
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=4&tu=2&div=weatherapi-weather-widget-3";
+        }else{
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=4&tu=1&div=weatherapi-weather-widget-3";
+        }
+    }
+
+    var top = document.getElementById('section');
+    top.appendChild(scrpt);
+    changeCount++;
+}
+function changeCToF(){
+    var search = document.getElementById("txt").value;
+    let size = 12;
+    if (search == null || search == ""){
+        search = "Sri Lanka";
+    }
+
+    if (search == "Sri Lanka" || search == "sri lanka" || search == "srilanka" || search == "sl" || search == "SL" ){
+        size = 8;
+    }
+
+
+    var scrpt =  document.getElementById("widget");
+    scrpt.remove();
+    scrpt = document.createElement("script");
+    scrpt.id = "widget";
+    if(changeCount%2 == 0){
+        if (changeCToFCount%2 == 0){
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=2&div=weatherapi-weather-widget-3";
+        }else{
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=1&div=weatherapi-weather-widget-3";
+        }
+    }else{
+        if (changeCToFCount%2 == 0){
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=4&tu=2&div=weatherapi-weather-widget-3";
+        }else{
+            scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=4&tu=1&div=weatherapi-weather-widget-3";
+        }
+    }
+
+    var top = document.getElementById('section');
+    top.appendChild(scrpt);
+    changeCToFCount++;
 }
