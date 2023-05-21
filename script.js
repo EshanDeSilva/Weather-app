@@ -1,39 +1,42 @@
-function changeTheme() {
-    var element = document.getElementById("banner");
-    var element1 = document.getElementById("center-dark");
-    var element2 = document.getElementById("bottom-dark");
-    var button = document.getElementById("add-btn");
-    var mainBody = document.getElementById("right-body");
-    element.classList.toggle("top-dark-mode");
-    element1.classList.toggle("dark-mode");
-    element2.classList.toggle("dark-mode");
-    button.classList.toggle("button-dark-mode");
-    mainBody.classList.toggle("right-body-dark");
- }
+let count = 0;
+function search(){
+    var search = document.getElementById("txt").value;
+    let size = 12;
+    if (search == null || search == ""){
+        search = "Sri Lanka";
+    }
 
- function newSection() {
-   /* var container = document.getElementById("container");
-    var section = document.getElementById("mainsection");
-    container.appendChild(section.cloneNode(true));*/
-    /*var element = document.getElementById("add-btn");
-    element.classList.toggle("add-button-click");*/
-    addDiv();
-  }
+    if (search == "Sri Lanka" || search == "sri lanka" || search == "srilanka" || search == "sl" || search == "SL" ){
+        size = 8;
+    }
 
-  function addDiv() {
-   var container = document.getElementById('container');
-   var newDiv = document.createElement('div');
-   newDiv.innerHTML = 'New Div ';
-   newDiv.className = "newDiv";
-   var closeButton = document.createElement('button');
-   var icon = document.createElement('img');
-   icon.src = 'https://img.icons8.com/?size=512&id=7703&format=png';
-   icon.classList.add('close-img');
-   closeButton.appendChild(icon);
-   closeButton.classList.add('close');
-   closeButton.onclick = function() {
-      container.removeChild(newDiv);
-   };
-   newDiv.appendChild(closeButton);
-   container.appendChild(newDiv);
- }
+    var map = document.getElementById("gmap_canvas");
+
+    var widget = document.getElementById('widget');
+    widget.remove();
+
+    var top = document.getElementById('section');
+       
+    map.src = "https://maps.google.com/maps?q="+search+"&t=&z="+size+"&ie=UTF8&iwloc=&output=embed";
+    
+    if (count>0){
+        var element = document.getElementById("weatherapi-weather-widget-3");
+        element.remove();
+    }
+    count++;
+
+    var newDiv = document.createElement('newDiv');
+    newDiv.id='weatherapi-weather-widget-3';
+
+    var scrpt = document.createElement('script');
+    scrpt.id='widget';
+    scrpt.src = "https://www.weatherapi.com/weather/widget.ashx?q="+search+"&wid=3&tu=1&div=weatherapi-weather-widget-3";
+
+    top.appendChild(scrpt);
+    top.appendChild(newDiv);
+}
+
+function changeTheme(){
+    var element = document.getElementById("main");
+    element.classList.toggle("body-light");
+}
