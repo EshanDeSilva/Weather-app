@@ -36,7 +36,7 @@
                     </div>
                     <div class="top-left col-12 col-sm-12 col-md-8 col-lg-8">
                         <div class="input-group col-12 col-sm-12 c0l-md-8 col-lg-8">
-                            <input type="text" id="txt" class="form-control" placeholder="Search...">
+                            <input type="text" id="txt" class="form-control" placeholder="Search..." onclick="search()">
                             <button class="btn btn-primary" type="button" onclick="search()">
                                 Search
                             </button>
@@ -48,12 +48,12 @@
         <div class="main-body" style="padding-top: 5vh;">
             <div class="container">
                 <div class="row">
-                    <div class="main-body-left col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="main-body-left col-12 col-sm-12 col-md-5 col-lg-5">
                         <div id="section">
                             <div id="weatherapi-weather-widget-3" class="icon"></div>
                         </div>
                     </div>
-                    <div class="main-body-right col-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="main-body-right col-12 col-sm-12 col-md-7 col-lg-7">
                         <div class="main-body-right-inner">
                             <div class="mapouter">
                                 <div class="gmap_canvas">
@@ -66,10 +66,8 @@
             </div>
         </div>
         <div class="footer">
-
         </div>
     </div>
-
 
     <script id="widget" type='text/javascript' src='https://www.weatherapi.com/weather/widget.ashx?q=sri lanka&wid=3&tu=1&div=weatherapi-weather-widget-3' async></script>
     <script src="script.js"></script>
