@@ -89,6 +89,7 @@ function changeTheme(){
     top.appendChild(scrpt);
     
 }
+
 function changeCToF(){
     var search = document.getElementById("txt").value;
     let size = 12;
@@ -125,5 +126,42 @@ function changeCToF(){
 
     var top = document.getElementById('section');
     top.appendChild(scrpt);
+    
+}
+
+function loadCities(){
+    var textElement = document.getElementById("txt");
+
+    var ul = document.getElementById("unOrderList");
+    ul.innerHTML = '';
+
+    let cities = [];
+
+    fetch('http://api.weatherapi.com/v1/search.json?key=3d2ffea9e0ad46138b383037231405&q='+(textElement.value))
+    .then(response =>response.json())
+    .then(json => {
+        cities = json;
+
+        cities.forEach((city,index)=>{
+            console.log(index+" = "+city.name+" - "+city.region+" - "+city.country);
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.className="dropdown-item";
+            a.innerHTML = city.name+", "+city.region+", "+city.country;
+            li.appendChild(a);
+
+            ul.appendChild(li);
+
+            
+        });
+    });
+
+    var city_selected = document.querySelector('#unOrderList');
+    city_selected.addEventListener('click', function (e) {
+
+        textElement.value = e.target.innerText
+        search();
+    });
+
     
 }
